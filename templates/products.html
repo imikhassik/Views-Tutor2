@@ -6,8 +6,27 @@ Products
 
 {% block content %}
     <h1>Все товары</h1>
+    <hr>
     {% if products %}
-        {{ products }}
+        <table>
+            <tr>
+                <td>Название</td>
+                <td>Описание</td>
+                <td>Категория</td>
+                <td>Цена</td>
+                <td>Количество</td>
+            </tr>
+
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description|truncatewords:2 }}</td>
+                <td>{{ product.category.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     {% else %}
         <h2>Товаров нет</h2>
     {% endif %}
