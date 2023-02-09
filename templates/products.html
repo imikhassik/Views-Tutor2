@@ -5,6 +5,10 @@ Products
 {% endblock title %}
 
 {% block content %}
-<h1>Все товары</h1>
-{{ products }}
+    <h1>Все товары</h1>
+    {% if products %}
+        {{ products }}
+    {% else %}
+        <h2>Товаров нет</h2>
+    {% endif %}
 {% endblock content %}
