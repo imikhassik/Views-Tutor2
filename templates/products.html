@@ -6,6 +6,8 @@ Products
 
 {% block content %}
     <h1>Все товары</h1>
+    <h3>{{ time_now|date:'M d Y' }}</h3>
+    <h3>{{ next_sale|default_if_none:"Чуть позже сообщим о распродаже!" }}</h3>
     <hr>
     {% if products %}
         <table>
