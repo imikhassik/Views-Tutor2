@@ -11,6 +11,10 @@ Products
     <h1>Все товары</h1>
     <h3>{% current_time '%b %d %Y' %}</h3>
     <h3>{{ next_sale|default_if_none:"Чуть позже сообщим о распродаже!" }}</h3>
+    <form action="" method="get">
+        {{ filterset.form.as_p }}
+        <input type="submit" value="Найти"/>
+    </form>
     <hr>
     {% if products %}
         <table>
