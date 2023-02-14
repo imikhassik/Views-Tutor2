@@ -23,4 +23,10 @@ class ProductForm(forms.ModelForm):
                 'description': 'Описание не может быть менее 20 символов.'
             })
 
+        name = cleaned_data.get('name')
+        if name == description:
+            raise ValidationError(
+                'Описание не должно быть идентично называнию.'
+            )
+
         return cleaned_data
