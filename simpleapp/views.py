@@ -1,8 +1,11 @@
-from datetime import datetime
+from django.urls import reverse_lazy
+from django.views.generic import (
+    ListView, DetailView, CreateView
+)
 
-from django.views.generic import ListView, DetailView
 from .models import Product
 from .filters import ProductFilter
+from .forms import ProductForm
 
 
 class ProductsList(ListView):
@@ -28,3 +31,9 @@ class ProductDetail(DetailView):
     model = Product
     template_name = 'product.html'
     context_object_name = 'product'
+
+
+class ProductCreate(CreateView):
+    form_class = ProductForm
+    model = Product
+    template_name = 'product_edit.html'

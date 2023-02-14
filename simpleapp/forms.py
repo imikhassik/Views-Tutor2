@@ -12,16 +12,15 @@ class ProductForm(forms.ModelForm):
         fields = [
             'name',
             'description',
-            'quantity',
             'category',
             'price',
+            'quantity',
         ]
 
     def clean(self):
         cleaned_data = super().clean()
-
         name = cleaned_data.get('name')
-        description = cleaned_data('description')
+        description = cleaned_data.get('description')
 
         if name == description:
             raise ValidationError(
